@@ -26,7 +26,7 @@ Ta có tính chất log10(a)+log10(b)=log10(a*b), vì vậy ta có thể tính �
 ## Long và E : 
 Ta nhận xét rằng sau khi sort lại thì ta lấy k số liên tục thì sẽ có tổng các giá trị tuyệt đối các hiệu là tối ưu nhất. Ta sẽ tính k số đầu tiên, rồi dịch chuyển đoạn k số trong dãy n số.
 #### Độ phức tạp : O(n).
-Chứng minh : Giả sử trong dãy n số a1,a2,a3,…,an-1,an+1 có một số an nằm giữa  an-1 và an+1 thì ta dễ thấy rằng nếu thay số an+1 bằng an thì ta sẽ có một kết quả tối ưu hơn vì tổng các hiệu sẽ giảm đi một lượng là (an+1-an)*(n-1).
+Chứng minh : Giả sử trong dãy n số a1,a2,a3,…,an-1,an+1 có một số an nằm giữa  an-1 và an+1 thì ta dễ thấy rằng nếu thay số an+1 bằng an thì ta sẽ có một kết quả tối ưu hơn vì tổng các hiệu sẽ giảm đi một lượng là (an+1-an)\*(n-1).
 ## Long và F : 
 Với mỗi thằng bé ta sẽ tính dãy tăng dần độ ngoan liên tiếp dài nhất kết thúc ở nó, và dãy giảm dần độ ngoan dài nhất bắt đầu ở nó. Số kẹo min cần đưa cho mỗi thằng bé là max của hai giá trị.
 #### Độ phức tạp : O(n).
