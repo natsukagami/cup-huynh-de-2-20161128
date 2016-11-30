@@ -19,7 +19,7 @@ Việc tính trên có thể mất O(n3), nhưng việc tính tổng có thể c
 ### Cách 2:
 
 Số cách tạo ra dãy có độ dài k không giảm sử dụng các số từ 1 đến n giống như là số cách chia k số vào n nhóm. Đáp án là bài toán chia kẹo, C(n-1,k+n-1).
-#### Độ phức tạp : O(n*log2(n)).
+#### Độ phức tạp : O(n\*log2(n)).
 
 *Lưu ý : mod là 100000007, không phải là 1000000007.*
 
@@ -46,7 +46,7 @@ Ta nhận xét rằng sau khi sort lại thì ta lấy k số liên tục thì s
 
 #### Độ phức tạp : O(n).
 
-Chứng minh : Giả sử trong dãy n số a1,a2,a3,…,an-1,an+1 có một số an nằm giữa  an-1 và an+1 thì ta dễ thấy rằng nếu thay số an+1 bằng an thì ta sẽ có một kết quả tối ưu hơn vì tổng các hiệu sẽ giảm đi một lượng là (an+1-an)\*(n-1).
+*Chứng minh : Giả sử trong dãy n số a1,a2,a3,…,an-1,an+1 có một số an nằm giữa  an-1 và an+1 thì ta dễ thấy rằng nếu thay số an+1 bằng an thì ta sẽ có một kết quả tối ưu hơn vì tổng các hiệu sẽ giảm đi một lượng là (an+1-an)\*(n-1).*
 
 ## Long và F : 
 Với mỗi thằng bé ta sẽ tính dãy tăng dần độ ngoan liên tiếp dài nhất kết thúc ở nó, và dãy giảm dần độ ngoan dài nhất bắt đầu ở nó. Số kẹo min cần đưa cho mỗi thằng bé là max của hai giá trị.
@@ -57,14 +57,14 @@ Với mỗi thằng bé ta sẽ tính dãy tăng dần độ ngoan liên tiếp 
 
 dp[i][mask1][mask2] là số con mã lớn nhất đặt được tính đến dãy thứ i với hai hàng cuối có dạng mask1 và mask2. Ta sẽ còn phải kiểm tra xem mask có thỏa mãn không (là có bit nào bị cấm mà vẫn có con mã không), sau đó quy về dp[i-1][mask3][mask1] + số bit hoạt động của mask2. Tính mảng này mất O(n*8^2). Số con mã đặt được nhiều nhất là max của dp[n][0→7][0→7], đặt là ans.
 Sau tính xong rồi, ta lại có hàm QHĐ thứ 2 : 
-pd[i][mask1][mask2][cnt] là số cách đặt tính đến dãy thứ i với hai hàng cuối có dang mask1 và mask2, truy về pd[i-1][mask3][mask1][cnt-số bit hoạt động của mask2]. Đáp án là tổng của các pd[n][0→7][0→7][ans]. Vẫn có chú ý như hàm thứ nhất.
+pd[i][mask1][mask2][cnt] là số cách đặt tính đến dãy thứ i với hai hàng cuối có dang mask1 và mask2 sử dụng cnt con mã, truy về pd[i-1][mask3][mask1][cnt-số bit hoạt động của mask2]. Đáp án là tổng của các pd[n][0→7][0→7][ans]. Vẫn có chú ý như hàm thứ nhất.
 
-#### Độ phức tạp : O(n*8^2+n*8^2*ans).
+#### Độ phức tạp : O(n\*8^2+n\*8^2\*ans).
 
 ## Long và H : 
 
 dp[i][ch1][ch2] là đến hàng thứ i dùng 2 kí tự ch1 và ch2. (Lưu ý để ch1 và ch2 dưới dạng các số từ 0 đến 25) Ta tính bằng dp[i-1][ch3][ch4]. Chú ý kiểm tra ch1 khác ch2 và ch1 khác ch3 và ch2 khác ch4. Ta sẽ for cả hàng để cập nhật số ô phải sửa trong hàng. Có thể giảm độ phức tạp bằng việc chuẩn bị trước mảng change[i][ch1][ch2], là số ô cần thay đổi để  được hàng i chỉ toàn ch1 và ch2.
-#### Độ phức tạp : O(n*26^2*(m+26^2)).
+#### Độ phức tạp : O(n\*26^2\*(m+26^2)).
 
 ## Long và I : 
 
@@ -75,7 +75,7 @@ Ta sẽ thấy tối ưu nhất là đổi các block toàn 0 liên tiếp thàn
 
 dp[i][j] là số cách tạo dãy ngoặc có độ dài i, tổng là j. dp[i][j]=dp[i-1][j+1] và cộng thêm dp[i-1][j-1] nếu j>0. Khởi tạo dp[0][0]=1.
 Trong xâu S, ta sẽ tính tổng bé nhất của tiền tố của xâu ngoặc S, gọi là l, và tổng của dãy ngoặc là s.
-Số cách tạo ra dãy ngoặc là tổng các dp[i][j]*dp[m-n-i][j+s], với i chạy từ 0 đến (m-n), và j chạy từ max(l,0) đến i, vì chắc chắn tổng của dãy sẽ không vượt quá i.
+Số cách tạo ra dãy ngoặc là tổng các dp[i][j]\*dp[m-n-i][j+s], với i chạy từ 0 đến (m-n), và j chạy từ max(-l,0) đến i, vì chắc chắn tổng của dãy sẽ không vượt quá i.
 
 #### Độ phức tạp : O(n^2).
 
@@ -87,6 +87,6 @@ Ta for với mỗi một số từ a[1] đến a[n], ta sẽ kiểm tra xem nó 
 + Nếu số số còn lại có bit thứ j hoạt động lớn hơn hoặc bằng 1 và bit thứ j của a[i] hoạt động thì đúng, và ngược lại. Nếu đúng với tất cả các bit của a[i] thì ta có số bằng OR của tất cả các số.
 + Nếu số số còn lại có bit thứ j hoạt động là lẻ và bit thứ j của a[i] hoạt động thì đúng, và ngược lại. Nễu đúng với tất cả các bit của a[i] thì ta có số bằng XOR của tất cả các số.
 
-#### Độ phức tạp : O(n*log2(10^9)), hay O(n*30).
+#### Độ phức tạp : O(n\*log2(10^9)), hay O(n\*30).
 
 # ~終わり,さよなら!!~
