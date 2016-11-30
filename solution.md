@@ -48,7 +48,7 @@ Ta nhận xét rằng sau khi sort lại thì ta lấy k số liên tục thì s
 
 #### Độ phức tạp : O(n).
 
-*Chứng minh : Giả sử trong dãy n số a1,a2,a3,…,an-1,an+1 có một số an nằm giữa  an-1 và an+1 thì ta dễ thấy rằng nếu thay số an+1 bằng an thì ta sẽ có một kết quả tối ưu hơn vì tổng các hiệu sẽ giảm đi một lượng là (an+1-an)\\\*(n-1).*
+*Chứng minh : Giả sử trong dãy n số a1,a2,a3,…,an-1,an+1 có một số an nằm giữa  an-1 và an+1 thì ta dễ thấy rằng nếu thay số an+1 bằng an thì ta sẽ có một kết quả tối ưu hơn vì tổng các hiệu sẽ giảm đi một lượng là (an+1-an)*\**(n-1).*
 
 ## Long và F : 
 
